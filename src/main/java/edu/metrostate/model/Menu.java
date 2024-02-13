@@ -8,9 +8,10 @@ public class Menu {
     private ArrayList[] BasicFoodItem;
     // do we want array list?
 
-    public Menu(String category, ArrayList<BasicFoodItem>){
+    public Menu(String category, ArrayList<BasicFoodItem> menu){
         category = category;
         menuID = menuID++;
+
     }
     public int getMenuID(){
         return menuID;
