@@ -7,10 +7,10 @@ public class Restaurant {
     public Menu menus[];
 
     public Restaurant(String name, String location, String category, Menu menus[]){
-        name = name;
-        location = location;
-        category = category;
-        menus = menus;
+        this.name = name;
+        this.location = location;
+        this.category = category;
+        this.menus = menus;
     }
     public void setName(String n){
         name = n;
