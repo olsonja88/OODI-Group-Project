@@ -9,8 +9,8 @@ public class Menu {
     // do we want array list?
 
     public Menu(String category, ArrayList<BasicFoodItem> menu){
-        category = category;
-        menuID = menuID++;
+        this.category = category;
+        this.menuID = menuID++;
 
     }
     public int getMenuID(){
