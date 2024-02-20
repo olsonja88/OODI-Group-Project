@@ -9,10 +9,10 @@ public class BasicFoodItem {
     private float price;
 
     public BasicFoodItem(String name, String description, String category, float price) {
-        name = name;
-        description = null;
-        category = null;
-        price = 0;
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        this.price = price;
         foodID = foodID++;
     }
 
