@@ -3,11 +3,40 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import java.net.URL?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="edu.metrostate.ui.AppController"
-            prefHeight="400.0" prefWidth="600.0">
-    <stylesheets>
-        <URL value="@Main.css" />
-    </stylesheets>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.control.ComboBox?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
+            fx:controller="edu.metrostate.ui.AppController">
+<stylesheets>
+    <URL value="@Main.css" />
+</stylesheets>
+    <top>
+        <HBox alignment="TOP_CENTER" fx:id="mainHeader" styleClass="red-hbox">
+            <Label text="Yummy Food" />
+        </HBox>
+
+    </top>
+
+    <left>
+        <HBox alignment="CENTER_LEFT">
+            <Label fx:id="dropDownLabel" text="Search Categories!"/>
+            <ComboBox fx:id="dropDown">
+
+            </ComboBox>
+        </HBox>
+    </left>
+
+    <right>
+        <HBox alignment="CENTER_RIGHT" fx:id="searchButton">
+            <Button text="Search for a restaurant"/>
+        </HBox>
+
+    </right>
+
+
+
 </BorderPane>
