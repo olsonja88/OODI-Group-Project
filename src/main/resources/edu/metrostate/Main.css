@@ -6,15 +6,19 @@
     -fx-font-size: 16px;
 }
 
+.red-hbox {
+    -fx-background-color: red;
+}
+
 #mainHeader {
     -fx-font-size: 3em;
-    -fx-background-color: red;
     -fx-background-radius: 10px;
     -fx-padding: 20px;
 }
 
 #mainHeader Label {
     -fx-text-fill: white;
+    -fx-alignment: center;
 }
 
 #footer {
