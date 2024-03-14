@@ -4,10 +4,11 @@
 .root {
     -fx-font-family: "Pacifico", sans-serif;
     -fx-font-size: 16px;
+    -fx-background-color: beige;
 }
 
 .red-hbox {
-    -fx-background-color: red;
+    -fx-background-color: crimson;
 }
 
 #mainHeader {
@@ -20,7 +21,20 @@
     -fx-text-fill: white;
     -fx-alignment: center;
 }
+/*
+can set button and label to white
+#dropDownLabel{
+    -fx-text-fill: black;
+    -fx-background-color: white;
+    }
 
+#dropDown{
+    -fx-text="click";
+    -fx-text-fill: black;
+    -fx-background-color: white;
+
+    }
+*/
 #footer {
     -fx-border-color: black;
     -fx-border-width: 1px 0 0 0;
