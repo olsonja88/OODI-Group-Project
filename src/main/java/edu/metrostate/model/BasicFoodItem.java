@@ -1,7 +1,6 @@
 package edu.metrostate.model;
 
 public class BasicFoodItem {
-    // TODO: Fill out this class from Lucid Chart diagram
     private String name;
     private static int foodID = 0;
     private String description;
