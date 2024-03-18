@@ -1,10 +1,33 @@
-# OODI-Group-Project
+# Yummy Food
 
-https://docs.google.com/document/d/1VaX80ec5_o5J01tbGSUX7T1l1OjGweVQq519qUOhU_g/edit?usp=sharing
+## Description
+Yummy Food is a food ordering app designed to streamline the process of ordering food from various restaurants.
+It provides users with a user-friendly interface to browse menus, and place orders.
 
+## Installation and Usage
 
-Mike Bechtold was here
-Jada Wentland was here
+### Windows & Mac
 
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/olsonja88/YummyFood.git
+    ```
 
-https://docs.google.com/document/d/1EiX9xBudHPPzTZn7TwhS-AV1vLzKMaloGISbGc8x9vg/edit
+2. **Navigate to the project directory:**
+    ```bash
+    cd YummyFood
+    ```
+
+3. **Compile and run the application:**
+    ```bash
+    ./gradlew run
+    ```
+
+## Technologies Used
+- JavaFX
+- Gradle
+
+## Group Members
+- John Olson
+- Mike Bechtold
+- Jada Wentland
