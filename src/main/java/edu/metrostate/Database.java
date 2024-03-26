@@ -25,7 +25,6 @@ public class Database {
         } catch (
                 SQLException ex) {
             ex.printStackTrace();
-        } finally {
         }
     }
 
@@ -47,8 +46,7 @@ public class Database {
         migrations.runMigrations(this.connection);
 
 
-        } catch (
-                SQLException ex) {
+        }  catch (Exception ex) {
             ex.printStackTrace();
         }
     }
