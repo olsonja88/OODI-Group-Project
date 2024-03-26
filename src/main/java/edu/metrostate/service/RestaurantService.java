@@ -2,7 +2,6 @@ package edu.metrostate.service;
 
 import edu.metrostate.model.Restaurant;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public interface RestaurantService {
     public void addRestaurant(Restaurant restaurant);
@@ -11,9 +10,9 @@ public interface RestaurantService {
 
     public ArrayList<Restaurant> getAllRestaurants();
 
-    public ArrayList<Restaurant> getByCategory(String cat);
+    public ArrayList<Restaurant> getByCategory(String category);
 
-    public ArrayList<Locale.Category> getAllCategories();
+    public ArrayList<String> getAllCategories();
 
     public ArrayList<Restaurant> getByCity(String city);
 }
