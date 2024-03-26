@@ -3,7 +3,7 @@ package edu.metrostate.service;
 import java.util.ArrayList;
 import edu.metrostate.model.Restaurant;
 
-public class RestaurantServiceImpl {
+public class RestaurantServiceImpl implements RestaurantService {
     // Instantiate restaurant table object
 
     public void addRestaurant(Restaurant restaurant)
@@ -11,7 +11,7 @@ public class RestaurantServiceImpl {
         // Insert restaurant object into restaurant table
     }
 
-    public void removeRestaurant(String name)
+    public void removeRestaurant(Restaurant restaurant)
     {
         // Find row in restaurant table a delete the row
     }
@@ -24,7 +24,7 @@ public class RestaurantServiceImpl {
         return restaurants;
     }
 
-    public ArrayList<String> getCategories()
+    public ArrayList<String> getAllCategories()
     {
         ArrayList<String> categories = new ArrayList<String>();
         // Select all categories from table and add to ArrayList
