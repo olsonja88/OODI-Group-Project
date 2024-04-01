@@ -37,17 +37,18 @@ public class LandingPageController {
         );
 
         comboBox.setItems(categories);
+        populateButton.setDisable(true);
     }
 
     @FXML
     private void onTestButtonClicked()
     {
-
+        testButton.setDisable(true);
     }
 
     @FXML
     private void onCloseConnectionButtonClicked()
     {
-
+    closeConnectionButton.setDisable(true);
     }
 }
