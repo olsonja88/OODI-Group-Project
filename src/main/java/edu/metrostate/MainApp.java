@@ -1,6 +1,6 @@
 package edu.metrostate;
 
-import edu.metrostate.ui.LandingPageController;
+//import edu.metrostate.ui.LandingPageController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
