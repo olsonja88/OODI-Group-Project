@@ -4,11 +4,21 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Button;
 
 public class LandingPageController {
 
     @FXML
     private ComboBox<String> comboBox;
+
+    @FXML
+    private Button populateButton;
+
+    @FXML
+    private Button testButton;
+
+    @FXML
+    private Button closeConnectionButton;
 
     public void initialize()
     {
@@ -17,5 +27,27 @@ public class LandingPageController {
         );
 
         comboBox.setItems(categories);
+    }
+
+    @FXML
+    private void onPopulateButtonClicked()
+    {
+        ObservableList<String> categories = FXCollections.observableArrayList(
+                "Populated 1", "Populated 2", "Populated 3", "Populated 4"
+        );
+
+        comboBox.setItems(categories);
+    }
+
+    @FXML
+    private void onTestButtonClicked()
+    {
+
+    }
+
+    @FXML
+    private void onCloseConnectionButtonClicked()
+    {
+
     }
 }

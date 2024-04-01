@@ -24,8 +24,17 @@
     -fx-padding: 10px;
 }
 
+.test-container {
+    -fx-alignment: center;
+    -fx-padding: 10px
+}
+
 ComboBox, Button {
     -fx-background-color: white;
+}
+
+ComboBox:hover, Button:hover {
+    -fx-background-color: grey;
 }
 
 .footer {
