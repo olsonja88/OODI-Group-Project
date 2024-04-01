@@ -14,7 +14,7 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
         VBox root = loader.load();
 
-        LandingPageController landingPageController = loader.getController();
+//        LandingPageController landingPageController = loader.getController();
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
