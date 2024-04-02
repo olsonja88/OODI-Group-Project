@@ -1,5 +1,6 @@
 package edu.metrostate.ui;
 
+import edu.metrostate.service.DatabaseImplementation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -32,23 +33,26 @@ public class LandingPageController {
     @FXML
     private void onPopulateButtonClicked()
     {
-        ObservableList<String> categories = FXCollections.observableArrayList(
-                "Populated 1", "Populated 2", "Populated 3", "Populated 4"
-        );
+        DatabaseImplementation db = DatabaseImplementation.getInstance();
+        db.migrate();
+//        ObservableList<String> categories = FXCollections.observableArrayList(
+//                "Populated 1", "Populated 2", "Populated 3", "Populated 4"
+//        );
 
-        comboBox.setItems(categories);
-        populateButton.setDisable(true);
+        //comboBox.setItems(categories);
+        //populateButton.setDisable(true);
     }
 
     @FXML
     private void onTestButtonClicked()
     {
-        testButton.setDisable(true);
+     //   testButton.setDisable(true);
     }
 
     @FXML
     private void onCloseConnectionButtonClicked()
     {
-    closeConnectionButton.setDisable(true);
+
+        // closeConnectionButton.setDisable(true);
     }
 }

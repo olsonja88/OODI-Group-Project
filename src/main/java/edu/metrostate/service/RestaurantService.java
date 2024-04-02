@@ -1,18 +1,87 @@
 package edu.metrostate.service;
 
-import edu.metrostate.model.Restaurant;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
-public interface RestaurantService {
-    public void addRestaurant(Restaurant restaurant);
+import edu.metrostate.model.Menu;
+import edu.metrostate.model.Restaurant;
 
-    public void removeRestaurant(Restaurant restaurant);
+import static edu.metrostate.service.DatabaseImplementation.closeQuietly;
 
-    public ArrayList<Restaurant> getAllRestaurants();
+public class RestaurantService {
+    Connection connection;
+    public RestaurantService (Connection connection) {
+        this.connection = connection;
+    }
 
-    public ArrayList<Restaurant> getByCategory(String category);
+    public List<Restaurant> loadResturants() {
+        List<Restaurant> r_list = new ArrayList<>();
+        MenuService ms = new MenuService(connection);
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM resturant");
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                // get location, category, menu
+                String loc = resultSet.getString("location");
+                String cat = resultSet.getString("category");
 
-    public ArrayList<String> getAllCategories();
+                Menu menu = ms.getMenu(id);
+                Restaurant restaurant = new Restaurant(name, loc, cat, menu);
+                r_list.add(restaurant);
+            }
+            closeQuietly(resultSet);
+            closeQuietly(statement);
+        } catch (SQLException ex) {
+            // ex.printStackTrace();
+        }
+        return r_list;
+    }
+/*
+    public void addRestaurant(Restaurant restaurant)
+    {
+        // Insert restaurant object into restaurant table
+    }
 
-    public ArrayList<Restaurant> getByCity(String city);
+    public void removeRestaurant(Restaurant restaurant)
+    {
+        // Find row in restaurant table a delete the row
+    }
+
+    public ArrayList<Restaurant> getAllRestaurants()
+    {
+        ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+        // Select all restaurants from table and add to ArrayList
+        private static List<Restaurant> load() {
+        List<Restaurant> people = Person.loadAll(connection);
+        return restaurants;
+    }
+
+
+
+    public ArrayList<String> getAllCategories()
+    {
+        ArrayList<String> categories = new ArrayList<String>();
+        // Select all categories from table and add to ArrayList
+
+        return categories;
+    }
+
+    public ArrayList<Restaurant> getByCategory(String category)
+    {
+        ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+        // Select all restaurants with the specified category
+
+        return restaurants;
+    }
+
+    public ArrayList<Restaurant> getByCity(String city)
+    {
+        ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+        // Select all restaurants with the specified city
+
+        return restaurants;
+    }*/
 }

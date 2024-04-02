@@ -31,8 +31,8 @@ public class BasicFoodItem {
         return foodID;
     }
 
-    public void setDescription(String decs) {
-        description = decs;
+    public void setDescription(String desc) {
+        description = desc;
     }
 
     public String getDescription() {
