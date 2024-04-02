@@ -2,11 +2,13 @@ package edu.metrostate.service;
 
 import edu.metrostate.Util;
 import edu.metrostate.migrations.Migrations;
+import edu.metrostate.model.Restaurant;
 
 import java.io.Closeable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
 public class DatabaseImplementation implements DatabaseInterface{
 
@@ -38,7 +40,7 @@ public class DatabaseImplementation implements DatabaseInterface{
 
         } catch (
                 SQLException ex) {
-            // ex.printStackTrace();
+             ex.printStackTrace();
         }
     }
 
@@ -67,5 +69,14 @@ public class DatabaseImplementation implements DatabaseInterface{
     public void migrate() {
         openConnection();
         Migrations m = new Migrations();
+        m.runMigrations(connection);
+    }
+
+    public void list() {
+        openConnection();
+        List<Restaurant> restaurants = rs.loadResturants();
+        for (Restaurant restaurant : restaurants) {
+            System.out.println(restaurant);
+        }
     }
 }

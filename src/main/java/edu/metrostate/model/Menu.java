@@ -14,9 +14,10 @@ public class Menu {
     private String category;
     private ArrayList<BasicFoodItem> foodItems;
 
-    public Menu(String category, int id){
-        this.category = category;
-        this.menuID = id;
+    public Menu(){
+        this.menuID = 0;
+        this.category = "";
+        this.foodItems = new ArrayList<>();
     }
     public Menu(String category, ArrayList<BasicFoodItem> foodItems){
         this.category = category;
@@ -36,5 +37,13 @@ public class Menu {
     public void addItem(BasicFoodItem newItem){
         foodItems.add(newItem);
     }
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(String.format("  menuID: %d, category: %s\n", menuID, category));
+        for (BasicFoodItem item : foodItems) {
+            builder.append(item.toString());
+        }
 
+        return builder.toString();
+    }
 }

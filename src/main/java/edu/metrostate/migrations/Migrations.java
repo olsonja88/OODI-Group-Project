@@ -30,7 +30,8 @@ public class Migrations {
     private List<Migration> loadMigrations() throws IOException {
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
         URL url = loader.getResource("sql");
-        String path = url.getPath();
+        //String path = url.getPath();
+        String path = "D:/_proj/OODI_Group_Project/src/main/resources/migrations";
         File dir = new File(path);
         List<File> sqlFiles = new ArrayList<>();
         if (dir.isDirectory()) {
@@ -47,8 +48,8 @@ public class Migrations {
                 .stream()
                 .map(file -> {
                     try {
-                        String statement = Files.readString(file.toPath());
-                        return new Migration(file.getName(), statement);
+                        List<String> lines = Files.readAllLines(file.toPath());
+                        return new Migration(file.getName(), lines);
                     } catch (Exception ex) {
                         return null;
                     }

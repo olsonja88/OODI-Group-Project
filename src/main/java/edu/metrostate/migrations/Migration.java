@@ -6,15 +6,16 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class Migration implements Comparable<Migration> {
 
     private String name;
-    private String statement;
+    private List<String> lines;
 
-    public Migration(String name, String statement) {
+    public Migration(String name, List<String> lines) {
         this.name = name;
-        this.statement = statement;
+        this.lines = lines;
     }
 
     public Integer order() {
@@ -31,9 +32,20 @@ public class Migration implements Comparable<Migration> {
             return;
         }
         Statement sqlStatement = null;
+        String statement = "";
         try {
+            System.out.println("Performing Migration " + name);
             sqlStatement = connection.createStatement();
-            sqlStatement.execute(statement);
+            for (String line: lines) {
+                statement += line;
+                if (line.contains(";")) {
+                    sqlStatement.execute(statement);
+                    statement = "";
+                }
+            }
+            if (!statement.isEmpty()) {
+                sqlStatement.execute(statement);
+            }
             sqlStatement.execute("INSERT INTO MIGRATIONS (name) values ('" + name + "')");
             sqlStatement.close();
         } catch (SQLException ex) {

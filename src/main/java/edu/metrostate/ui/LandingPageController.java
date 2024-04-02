@@ -35,17 +35,13 @@ public class LandingPageController {
     {
         DatabaseImplementation db = DatabaseImplementation.getInstance();
         db.migrate();
-//        ObservableList<String> categories = FXCollections.observableArrayList(
-//                "Populated 1", "Populated 2", "Populated 3", "Populated 4"
-//        );
-
-        //comboBox.setItems(categories);
-        //populateButton.setDisable(true);
     }
 
     @FXML
     private void onTestButtonClicked()
     {
+        DatabaseImplementation db = DatabaseImplementation.getInstance();
+        db.list();
      //   testButton.setDisable(true);
     }
 

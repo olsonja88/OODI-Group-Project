@@ -53,4 +53,10 @@ public class Restaurant {
     public int getID() {
         return  id;
     }
+
+    public String toString() {
+        String builder = String.format("ID: %d, name: %s, location: %s, category: %s\n", id, name, location, category);
+        builder += menu.toString();
+        return builder;
+    }
 }

@@ -30,6 +30,7 @@ public class RestaurantService {
 
                 Menu menu = ms.getMenu(id);
                 Restaurant restaurant = new Restaurant(name, loc, cat, menu);
+                restaurant.setID(id);
                 r_list.add(restaurant);
             }
             closeQuietly(resultSet);

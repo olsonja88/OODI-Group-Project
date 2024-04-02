@@ -1,29 +1,29 @@
 INSERT INTO food_items(name, description, category, price, resturant_id) VALUES(
-"Bacon, Egg & Cheese", "Bacon, Egg & Cheese", "Breakfast", 0.00, 2)
+"Bacon, Egg & Cheese", "Bacon, Egg & Cheese", "Breakfast", 0.00, 3);
 
 INSERT INTO food_items(name, description, category, price, resturant_id) VALUES(
-"Sausage McMuffin with Egg, Sausage McMuffin with Egg", "Breakfast", 0.00, 2)
+"Sausage McMuffin with Egg", "Sausage McMuffin with Egg", "Breakfast", 0.00, 3);
 
 INSERT INTO food_items(name, description, category, price, resturant_id) VALUES(
-"Sausage Biscuit", "Sausage Biscuit", "Breakfast", 0.00, 2)
+"Sausage Biscuit", "Sausage Biscuit", "Breakfast", 0.00, 3);
 
 INSERT INTO food_items(name, description, category, price, resturant_id) VALUES(
-"Sausage Biscuit with Egg", "Sausage Biscuit with Egg", "Breakfast", 0.00, 2)
+"Sausage Biscuit with Egg", "Sausage Biscuit with Egg", "Breakfast", 0.00, 3);
 
 INSERT INTO food_items(name, description, category, price, resturant_id) VALUES(
-"Sausage Biscuit with Egg", "Sausage Biscuit with Egg", "Breakfast", 0.00, 2)
+"Sausage Biscuit with Egg", "Sausage Biscuit with Egg", "Breakfast", 0.00, 3);
 
 INSERT INTO food_items(name, description, category, price, resturant_id) VALUES(
-"McNuggets - BBQ", "Chicken McNuggets with BBQ Sauce", "Lunch/Dinner", 0.00, 2)
+"McNuggets - BBQ", "Chicken McNuggets with BBQ Sauce", "Lunch/Dinner", 0.00, 3);
 
 INSERT INTO food_items(name, description, category, price, resturant_id) VALUES(
-"Fries - Large", "Large French Fries", "Lunch/Dinner", 0.00, 2)
+"Fries - Large", "Large French Fries", "Lunch/Dinner", 0.00, 3);
 
 INSERT INTO food_items(name, description, category, price, resturant_id) VALUES(
-"Dr Pepper - Large", "Dr Pepper, Drink", 1.25, 2)
+"Dr Pepper - Large", "Dr Pepper", "Drink", 1.25, 3);
 
 INSERT INTO food_items(name, description, category, price, resturant_id) VALUES(
-"Coca-Cola - Large", "Coca Cola, Drink", 1.25, 2)
+"Coca-Cola - Large", "Coca Cola", "Drink", 1.25, 3);
 
 INSERT INTO food_items(name, description, category, price, resturant_id) VALUES(
-"Coca-Cola - Large", "Iced Tea, Drink", 1.25, 2)
+"Coca-Cola - Large", "Iced Tea", "Drink", 1.25, 3);

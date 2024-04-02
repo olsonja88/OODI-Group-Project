@@ -18,7 +18,7 @@ public class MenuService  {
     }
 
     public Menu getMenu(int restaurant_id) {
-        Menu menu = new Menu("", 0);
+        Menu menu = new Menu();
         try {
             String sql = "SELECT * FROM food_items WHERE resturant_id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
