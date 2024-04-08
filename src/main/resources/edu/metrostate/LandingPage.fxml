@@ -20,7 +20,7 @@
         <Region HBox.hgrow="ALWAYS"/>
         <ComboBox fx:id="comboBox" promptText="Categories"/>
         <Region HBox.hgrow="ALWAYS"/>
-        <Button text="Search for a restaurant"/>
+        <Button text="Search for a restaurant" fx:id="searchButton" styleClass="searchButton"/>
         <Region HBox.hgrow="ALWAYS"/>
     </HBox>
     <HBox styleClass="footer" VBox.vgrow="NEVER">
