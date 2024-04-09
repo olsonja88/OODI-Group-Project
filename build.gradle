@@ -17,6 +17,9 @@ application {
     mainClass = "edu.metrostate.MainApp"
     mainModule = "App"
 }
+dependencies {
+    implementation 'org.xerial:sqlite-jdbc:3.43.0.0'
+}
 
 jlink {
     addOptions('--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages')

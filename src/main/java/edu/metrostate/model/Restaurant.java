@@ -1,19 +1,18 @@
 package edu.metrostate.model;
 
-import java.util.ArrayList;
-
 public class Restaurant {
-    public String name;
-    public String location;
-    public String category;
-    public ArrayList<Menu> menus;
+    private int id;
+    private String name;
+    private String location;
+    private String category;
+    private Menu menu;
     //ie breakfast menu, lunch menu
 
-    public Restaurant(String name, String location, String category, ArrayList<Menu> menus){
+    public Restaurant(String name, String location, String category, Menu menu){
         this.name = name;
         this.location = location;
         this.category = category;
-        this.menus = menus;
+        this.menu = menu;
     }
     public void setName(String n){
         name = n;
@@ -33,6 +32,7 @@ public class Restaurant {
     public String getCategory(){
         return category;
     }
+    /*
     public void addToMenu(Menu item){
         //TO DO add method
         menus.add(item);
@@ -43,5 +43,20 @@ public class Restaurant {
     }
     public Menu getMenu(int index) {
         return menus.get(index);
+    }*/
+    public Menu getMenu(int index) {
+        return menu;
+    }
+    public void setID(int newID) {
+        this.id = newID;
+    }
+    public int getID() {
+        return  id;
+    }
+
+    public String toString() {
+        String builder = String.format("ID: %d, name: %s, location: %s, category: %s\n", id, name, location, category);
+        builder += menu.toString();
+        return builder;
     }
 }

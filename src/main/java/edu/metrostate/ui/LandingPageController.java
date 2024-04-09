@@ -1,6 +1,7 @@
 package edu.metrostate.ui;
 
 //import com.sun.javafx.stage.EmbeddedWindow;
+import edu.metrostate.service.DatabaseImplementation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -43,4 +44,21 @@ public class LandingPageController {
         return searchButton;
     }
 
+    @FXML
+    private void onPopulateButtonClicked()
+    {
+        DatabaseImplementation db = DatabaseImplementation.getInstance();
+        db.migrate();
+    }
+
+    @FXML
+    private void onTestButtonClicked()
+    {
+        DatabaseImplementation db = DatabaseImplementation.getInstance();
+        db.list();
+    }
+
+    @FXML
+    private void onCloseConnectionButtonClicked()
+    {}
 }

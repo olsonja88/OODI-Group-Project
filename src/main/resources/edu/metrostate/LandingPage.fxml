@@ -23,6 +23,15 @@
         <Button text="Search for a restaurant" fx:id="searchButton" styleClass="searchButton"/>
         <Region HBox.hgrow="ALWAYS"/>
     </HBox>
+    <HBox styleClass="test-container">
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="populateButton" text="Populate" onAction="#onPopulateButtonClicked" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="testButton" text="Test" onAction="#onTestButtonClicked" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="closeConnectionButton" text="Close" onAction="#onCloseConnectionButtonClicked" />
+        <Region HBox.hgrow="ALWAYS" />
+    </HBox>
     <HBox styleClass="footer" VBox.vgrow="NEVER">
         <Label text="Footer" styleClass="footer-label"/>
     </HBox>
