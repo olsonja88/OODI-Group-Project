@@ -1,69 +1,30 @@
 package edu.metrostate;
 
-import edu.metrostate.ui.LandingPageController;
-import edu.metrostate.ui.RestaurantPageController;
-import edu.metrostate.ui.ScrollPageController;
+import edu.metrostate.service.DatabaseImplementation;
+import edu.metrostate.ui.RootController;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class MainApp extends Application {
-
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
-        VBox landingPageRoot = loader1.load();
-        LandingPageController landingPageController = loader1.getController();
+        DatabaseImplementation db = DatabaseImplementation.getInstance();
+        db.migrate();
 
-        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("ScrollPage.fxml"));
-        VBox scrollPageRoot = loader2.load();
-        ScrollPageController scrollPageController = loader2.getController();
+        FXMLLoader rootLoader = new FXMLLoader(getClass().getResource("/edu/metrostate/Root.fxml"));
+        VBox root = rootLoader.load();
+        RootController rootController = rootLoader.getController();
+        rootController.initialize();
 
-        FXMLLoader loader3 = new FXMLLoader(getClass().getResource("RestaurantPage.fxml"));
-        VBox restaurantPageRoot = loader3.load();
-        RestaurantPageController restaurantPageController = loader3.getController();
-
-        landingPageController.getSearchButton().setOnAction(event -> {
-            switchToScrollPage(stage);
-        });
-
-        scrollPageController.getMenuOne().setOnAction(event -> {
-            switchToMenuPage(stage);
-        });
-
-        Scene scene = new Scene(landingPageRoot);
+        Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("ICS 372 - HelloFX");
+        stage.setTitle("Yummy Food");
         stage.show();
     }
-
-    private void switchToScrollPage(Stage stage){
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ScrollPage.fxml"));
-            Parent root = loader.load();
-            stage.setScene(new Scene(root));
-            stage.show();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
-    public void switchToMenuPage(Stage stage){
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("RestaurantPage.fxml"));
-            Parent root = loader.load();
-            stage.setScene(new Scene(root));
-            stage.show();
-        }catch( IOException e){
-            e.printStackTrace();
-        }
-    }
-
 
     public static void main(String[] args) {
         launch(args);

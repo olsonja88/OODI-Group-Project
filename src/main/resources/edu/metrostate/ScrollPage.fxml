@@ -1,41 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
 
-<VBox xmlns:fx="http://javafx.com/fxml"
-      xmlns="http://javafx.com/javafx"
-      fx:controller="edu.metrostate.ui.ScrollPageController">
-    <stylesheets>
-        <URL value="@Root.css"/>
-    </stylesheets>
-    <HBox styleClass="header" HBox.hgrow="NEVER">
-        <Label text="Yummy Food" styleClass="main-header-label"/>
-    </HBox>
-    <ScrollPane VBox.vgrow="ALWAYS" >
-        <VBox spacing="10">
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="Restaurant #1 info" />
-                <Button text="View Menu"  prefWidth="140" prefHeight="30" styleClass="button-label"
-                            textAlignment="CENTER" fx:id="menuOne"/>
-            </HBox>
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text = "Restaurant #2 info" />
-                <Button text="View Menu" prefWidth="140" prefHeight="30"
-                            textAlignment="CENTER" styleClass="button-label" fx:id="menuTwo"/>
-            </HBox>
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                    <Label text = "Restaurant #3 info" />
-                    <Button text="View Menu" prefWidth="140" prefHeight="30" styleClass="button-label"
-                                textAlignment="CENTER" fx:id="menuThree"/>
-            </HBox>
-        </VBox>
-    </ScrollPane>
-    <HBox styleClass="footer" VBox.vgrow="NEVER">
-        <Label text="Footer" styleClass="footer-label"/>
-    </HBox>
-</VBox>
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="edu.metrostate.ui.ScrollPageController" VBox.vgrow="ALWAYS">
+    <VBox>
+        <HBox>
+            <Label text="Restaurant #1 info" />
+            <Button text="View Menu" fx:id="menuOne"/>
+        </HBox>
+        <HBox>
+            <Label text = "Restaurant #2 info" />
+            <Button text="View Menu" fx:id="menuTwo"/>
+        </HBox>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text = "Restaurant #3 info" />
+            <Button text="View Menu" fx:id="menuThree"/>
+        </HBox>
+    </VBox>
+</HBox>
