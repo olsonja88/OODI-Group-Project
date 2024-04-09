@@ -28,10 +28,7 @@ public class Migrations {
     }
 
     private List<Migration> loadMigrations() throws IOException {
-        ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        URL url = loader.getResource("sql");
-        //String path = url.getPath();
-        String path = "D:/_proj/OODI_Group_Project/src/main/resources/migrations";
+        String path = getPath();
         File dir = new File(path);
         List<File> sqlFiles = new ArrayList<>();
         if (dir.isDirectory()) {
@@ -58,6 +55,18 @@ public class Migrations {
                 .sorted()
                 .collect(Collectors.toList());
         return migrations;
+    }
+
+    private String getPath()
+    {
+        ClassLoader loader = Thread.currentThread().getContextClassLoader();
+        URL url = loader.getResource("migrations");
+
+        String path = url.getPath();
+        String pathMod1 = path.replace("libs/App.jar!/migrations/", "resources/main/migrations/");
+        String pathMod2 = pathMod1.replace("/", "\\");
+
+        return pathMod2.replace("file:\\\\", "");
     }
 
     private void createMigrationTable(Connection connection) {
