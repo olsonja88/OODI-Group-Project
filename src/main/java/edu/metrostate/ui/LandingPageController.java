@@ -56,6 +56,10 @@ public class LandingPageController {
     {
         DatabaseImplementation db = DatabaseImplementation.getInstance();
         db.list();
+
+        comboBox.setItems(FXCollections.observableArrayList(db.getCategories()));
+
+     //   testButton.setDisable(true);
     }
 
     @FXML
