@@ -21,12 +21,12 @@ public class MainApp extends Application {
     @FXML
     private Parent scrollParent;
 
-    @FXML LandingPageController landingPageController;
+   /* @FXML LandingPageController landingPageController;
 
     @FXML ScrollPageController scrollPageController;
 
     @FXML RestaurantPageController restaurantPageController;
-
+*/
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
@@ -35,6 +35,8 @@ public class MainApp extends Application {
         LandingPageController landingPageController = loader.getController();
 
         RestaurantPageController restaurantPageController = loader.getController();
+
+        ScrollPageController scrollPageController = loader.getController();
 
         landingPageController.getSearchButton().setOnAction(event -> {
             switchToScrollPage(stage);
