@@ -1,11 +1,9 @@
 package edu.metrostate.service;
 
-import edu.metrostate.Util;
 import edu.metrostate.migrations.Migrations;
 import edu.metrostate.model.Restaurant;
 
 import java.io.Closeable;
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -25,16 +23,17 @@ public class DatabaseImplementation implements DatabaseInterface{
     protected static DatabaseImplementation instance;
 
     private List<Restaurant> restaurants;
+
     private DatabaseImplementation () {
         migrate();
     }
+
     public static  DatabaseImplementation getInstance() {
         if (instance == null) {
             instance = new DatabaseImplementation();
         }
         return instance;
     }
-
 
     @Override
     public void openConnection() {
@@ -49,7 +48,6 @@ public class DatabaseImplementation implements DatabaseInterface{
              ex.printStackTrace();
         }
     }
-
 
     public static void closeQuietly(Closeable closeable) {
         try {
@@ -78,14 +76,9 @@ public class DatabaseImplementation implements DatabaseInterface{
         m.runMigrations(connection);
     }
 
-   public void list() {
+    public void list() {
         openConnection();
         restaurants = rs.loadResturants();
-       // for (Restaurant restaurant : restaurants) {
-        //    System.out.println(restaurant);
-       // }
-
-
     }
 
     public ArrayList<String> getCategories() {
@@ -95,5 +88,9 @@ public class DatabaseImplementation implements DatabaseInterface{
         }
         Set<String> uniqueStringSet = new HashSet<>(list); // Convert list to set
         return new ArrayList<>(uniqueStringSet);
+    }
+
+    public List<Restaurant> getRestaurants() {
+        return restaurants;
     }
 }

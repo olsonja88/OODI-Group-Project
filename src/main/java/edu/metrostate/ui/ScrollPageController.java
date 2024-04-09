@@ -1,25 +1,64 @@
 package edu.metrostate.ui;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import edu.metrostate.model.Restaurant;
+import edu.metrostate.service.DatabaseImplementation;
+
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.Node;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ScrollPageController {
-
     @FXML
-    private Button menuOne;
+    private HBox scrollPage;
 
-    @FXML
-    private Button menuTwo;
+    public ScrollPageController() {}
 
-    @FXML
-    private Button menuThree;
-
-    public Button getMenuOne(){
-        return menuOne;
+    public void initialize() {
+        scrollPage.getChildren().clear();
     }
 
+    public void populateScrollPage(String selectedCategory) {
+        DatabaseImplementation db = DatabaseImplementation.getInstance();
+        List<Restaurant> allRestaurants= db.getRestaurants();
+        ArrayList<Restaurant> selectedRestaurants = new ArrayList<>();
+
+        for (Restaurant restaurant : allRestaurants) {
+            if (restaurant.getCategory().equalsIgnoreCase(selectedCategory)) {
+                selectedRestaurants.add(restaurant);
+            }
+        }
+
+        VBox restaurantOptions = new VBox();
+
+        for (Restaurant restaurant : selectedRestaurants) {
+            HBox restaurantOption = new HBox();
+            restaurantOption.getStyleClass().add("restaurant-option");
+            Label restaurantName = new Label(restaurant.getName());
+            restaurantName.getStyleClass().add("restaurant-name");
+            Button viewMenuButton = new Button("View Menu");
+            viewMenuButton.setUserData(restaurant.getID());
+
+            restaurantOption.getChildren().addAll(restaurantName, viewMenuButton);
+            restaurantOptions.getChildren().add(restaurantOption);
+        }
+
+        scrollPage.getChildren().add(restaurantOptions);
+    }
+
+    public List<Button> getButtons() {
+        List<Button> buttonList = new ArrayList<>();
+        for (Node node: scrollPage.getChildren()) {
+            if (node instanceof Button) {
+                buttonList.add((Button) node);
+            }
+        }
+
+        return buttonList;
+    }
 }

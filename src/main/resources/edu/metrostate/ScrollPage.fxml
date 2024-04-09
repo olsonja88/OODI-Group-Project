@@ -1,65 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Button?>
 
-<?import javafx.scene.control.ScrollPane?>
-
-<VBox xmlns:fx="http://javafx.com/fxml"
-      xmlns="http://javafx.com/javafx"
-      fx:controller="edu.metrostate.ui.ScrollPageController">
-
-    <!-- connecting to ScrollPage.css file -->
-    <stylesheets>
-        <URL value="@ScrollPage.css"/>
-    </stylesheets>
-    <!-- header of page -->
-    <HBox styleClass="header" HBox.hgrow="NEVER">
-        <Label text="Yummy Food" styleClass="main-header-label"/>
-    </HBox>
-    <!-- scrollable list of restaurants-->
-    <!-- vbox needed to see all buttons -->
-    <ScrollPane VBox.vgrow="ALWAYS" >
-        <content>
-            <VBox spacing="10">
-
-                <!-- info and button for restaurant #1 -->
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <Label text="Restauraunt #1 info" />
-                    <children>
-                        <Button text="View Menu"  prefWidth="140" prefHeight="30" styleClass="button-label"
-                                textAlignment="CENTER" fx:id="menuOne"/>
-                    </children>
-                </HBox>
-
-                <!-- info and button for restaurant #2 -->
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <Label text = "Restaurant #2 info" />
-                    <children>
-                        <Button text="View Menu" prefWidth="140" prefHeight="30"
-                                textAlignment="CENTER" styleClass="button-label" fx:id="menuTwo"/>
-                    </children>
-                </HBox>
-
-                <!-- info and button for restaurant #3 -->
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                        <Label text = "Restaurant #3 info" />
-                        <children>
-                            <Button text="View Menu" prefWidth="140" prefHeight="30" styleClass="button-label"
-                                    textAlignment="CENTER" fx:id="menuThree"/>
-                        </children>
-                </HBox>
-            </VBox>
-        </content>
-    </ScrollPane>
-
-    <!-- footer of page -->
-    <HBox styleClass="footer" VBox.vgrow="NEVER">
-        <Label text="Footer" styleClass="footer-label"/>
-    </HBox>
-</VBox>
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.metrostate.ui.ScrollPageController" fx:id="scrollPage" VBox.vgrow="ALWAYS"/>

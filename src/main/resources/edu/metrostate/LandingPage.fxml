@@ -1,38 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Button?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx" fx:controller="edu.metrostate.ui.LandingPageController">
-    <stylesheets>
-        <URL value="@LandingPage.css"/>
-    </stylesheets>
-    <HBox styleClass="main-header" VBox.vgrow="NEVER">
-        <Label text="Yummy Food" styleClass="main-header-label"/>
-    </HBox>
-    <HBox styleClass="content-section" VBox.vgrow="ALWAYS">
-        <!-- Regions for even spacing -->
-        <Region HBox.hgrow="ALWAYS"/>
-        <ComboBox fx:id="comboBox" promptText="Categories"/>
-        <Region HBox.hgrow="ALWAYS"/>
-        <Button text="Search for a restaurant" fx:id="searchButton" styleClass="searchButton"/>
-        <Region HBox.hgrow="ALWAYS"/>
-    </HBox>
-    <HBox styleClass="test-container">
-        <Region HBox.hgrow="ALWAYS" />
-        <Button fx:id="populateButton" text="Populate" onAction="#onPopulateButtonClicked" />
-        <Region HBox.hgrow="ALWAYS" />
-        <Button fx:id="testButton" text="Test" onAction="#onTestButtonClicked" />
-        <Region HBox.hgrow="ALWAYS" />
-        <Button fx:id="closeConnectionButton" text="Close" onAction="#onCloseConnectionButtonClicked" />
-        <Region HBox.hgrow="ALWAYS" />
-    </HBox>
-    <HBox styleClass="footer" VBox.vgrow="NEVER">
-        <Label text="Footer" styleClass="footer-label"/>
-    </HBox>
-</VBox>
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="edu.metrostate.ui.LandingPageController">
+    <Region HBox.hgrow="ALWAYS"/>
+    <ComboBox fx:id="comboBox" promptText="Categories"/>
+    <Region HBox.hgrow="ALWAYS"/>
+    <Button text="Search for a restaurant" fx:id="searchButton"/>
+    <Region HBox.hgrow="ALWAYS"/>
+</HBox>

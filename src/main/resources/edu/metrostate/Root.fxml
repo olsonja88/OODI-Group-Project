@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="edu.metrostate.ui.RootController">
+    <stylesheets>
+        <URL value="@Root.css"/>
+    </stylesheets>
+    <HBox styleClass="main-header" VBox.vgrow="NEVER">
+        <Label text="Yummy Food" styleClass="main-header-label"/>
+    </HBox>
+    <HBox fx:id="contentSection" styleClass="content-section" VBox.vgrow="ALWAYS"/>
+    <HBox styleClass="footer" VBox.vgrow="NEVER">
+        <Label text="Footer" styleClass="footer-label"/>
+    </HBox>
+</VBox>
