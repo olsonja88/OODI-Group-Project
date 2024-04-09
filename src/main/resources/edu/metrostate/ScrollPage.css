@@ -7,7 +7,7 @@
     -fx-background-color: beige;
 }
 
-.main-header {
+.header {
     -fx-background-color: crimson;
     -fx-font-size: 4.5em;
     -fx-alignment: center;
@@ -18,23 +18,14 @@
     -fx-text-fill: white;
 }
 
-.content-section {
+.content{
     -fx-font-family: "Red Hat Display", sans-serif;
     -fx-alignment: center;
     -fx-padding: 10px;
 }
 
-.test-container {
-    -fx-alignment: center;
-    -fx-padding: 10px
-}
-
-ComboBox, Button {
-    -fx-background-color: white;
-}
-
-ComboBox:hover, Button:hover {
-    -fx-background-color: grey;
+.button-label {
+    -fx-text-fill: white;
 }
 
 .footer {
