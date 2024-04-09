@@ -1,7 +1,6 @@
 package edu.metrostate;
 
 import edu.metrostate.service.DatabaseImplementation;
-import edu.metrostate.ui.RootController;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,8 +16,6 @@ public class MainApp extends Application {
 
         FXMLLoader rootLoader = new FXMLLoader(getClass().getResource("/edu/metrostate/Root.fxml"));
         VBox root = rootLoader.load();
-        RootController rootController = rootLoader.getController();
-        rootController.initialize();
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
