@@ -10,7 +10,7 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx" fx:controller="edu.metrostate.ui.LandingPageController">
     <stylesheets>
-        <URL value="@LandingPage.css"/>
+        <URL value="@Root.css"/>
     </stylesheets>
     <HBox styleClass="main-header" VBox.vgrow="NEVER">
         <Label text="Yummy Food" styleClass="main-header-label"/>

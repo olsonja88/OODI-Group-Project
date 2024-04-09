@@ -4,7 +4,6 @@ import edu.metrostate.ui.LandingPageController;
 import edu.metrostate.ui.RestaurantPageController;
 import edu.metrostate.ui.ScrollPageController;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

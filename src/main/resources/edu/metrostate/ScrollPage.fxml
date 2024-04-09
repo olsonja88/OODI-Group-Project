@@ -11,7 +11,7 @@
       xmlns="http://javafx.com/javafx"
       fx:controller="edu.metrostate.ui.ScrollPageController">
     <stylesheets>
-        <URL value="@ScrollPage.css"/>
+        <URL value="@Root.css"/>
     </stylesheets>
     <HBox styleClass="header" HBox.hgrow="NEVER">
         <Label text="Yummy Food" styleClass="main-header-label"/>
@@ -19,7 +19,7 @@
     <ScrollPane VBox.vgrow="ALWAYS" >
         <VBox spacing="10">
             <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="Restauraunt #1 info" />
+                <Label text="Restaurant #1 info" />
                 <Button text="View Menu"  prefWidth="140" prefHeight="30" styleClass="button-label"
                             textAlignment="CENTER" fx:id="menuOne"/>
             </HBox>
