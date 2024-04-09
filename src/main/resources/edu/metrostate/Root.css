@@ -24,17 +24,25 @@
     -fx-padding: 10px;
 }
 
-.test-container {
-    -fx-alignment: center;
-    -fx-padding: 10px
-}
-
 ComboBox, Button {
     -fx-background-color: white;
 }
 
 ComboBox:hover, Button:hover {
     -fx-background-color: grey;
+}
+
+.restaurant-option {
+    -fx-padding: 15px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+    -fx-alignment: center;
+}
+
+.restaurant-option-text {
+    -fx-padding: 5px;
+    -fx-border-insets: 2px;
+    -fx-background-insets: 2px;
 }
 
 .footer {

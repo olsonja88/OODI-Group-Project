@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
@@ -8,17 +9,17 @@
 <HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
             fx:controller="edu.metrostate.ui.ScrollPageController" VBox.vgrow="ALWAYS">
     <VBox>
-        <HBox>
-            <Label text="Restaurant #1 info" />
-            <Button text="View Menu" fx:id="menuOne"/>
+        <HBox styleClass="restaurant-option">
+            <Label styleClass="restaurant-option-text" text="Restaurant #1 info"/>
+            <Button text="View Menu"/>
         </HBox>
-        <HBox>
-            <Label text = "Restaurant #2 info" />
-            <Button text="View Menu" fx:id="menuTwo"/>
+        <HBox styleClass="restaurant-option">
+            <Label styleClass="restaurant-option-text" text = "Restaurant #2 info"/>
+            <Button text="View Menu"/>
         </HBox>
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Label text = "Restaurant #3 info" />
-            <Button text="View Menu" fx:id="menuThree"/>
+        <HBox styleClass="restaurant-option">
+            <Label styleClass="restaurant-option-text" text = "Restaurant #3 info"/>
+            <Button text="View Menu"/>
         </HBox>
     </VBox>
 </HBox>
