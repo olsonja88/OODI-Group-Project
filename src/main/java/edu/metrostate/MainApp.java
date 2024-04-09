@@ -21,22 +21,25 @@ public class MainApp extends Application {
     @FXML
     private Parent scrollParent;
 
-   /* @FXML LandingPageController landingPageController;
+    @FXML LandingPageController landingPageController;
 
     @FXML ScrollPageController scrollPageController;
 
     @FXML RestaurantPageController restaurantPageController;
-*/
+
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
-        VBox root = loader.load();
+        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
+        VBox landingPageRoot = loader1.load();
+        LandingPageController landingPageController = loader1.getController();
 
-        LandingPageController landingPageController = loader.getController();
+        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("ScrollPage.fxml"));
+        VBox scrollPageRoot = loader2.load();
+        ScrollPageController scrollPageController = loader2.getController();
 
-        RestaurantPageController restaurantPageController = loader.getController();
-
-        ScrollPageController scrollPageController = loader.getController();
+        FXMLLoader loader3 = new FXMLLoader(getClass().getResource("RestaurantPage.fxml"));
+        VBox restaurantPageRoot = loader3.load();
+        RestaurantPageController restaurantPageController = loader3.getController();
 
         landingPageController.getSearchButton().setOnAction(event -> {
             switchToScrollPage(stage);
@@ -46,10 +49,11 @@ public class MainApp extends Application {
             switchToMenuPage(stage);
         });
 
-  Scene scene = new Scene(root);
+        Scene scene = new Scene(landingPageRoot);
         stage.setScene(scene);
         stage.setTitle("ICS 372 - HelloFX");
         stage.show();
+
     }
 
     public static void main(String[] args) {
@@ -62,11 +66,9 @@ public class MainApp extends Application {
             Parent root = loader.load();
             stage.setScene(new Scene(root));
             stage.show();
-        }
-        catch (IOException e){
+        }catch (IOException e){
             e.printStackTrace();
         }
-
     }
 
     public void switchToMenuPage(Stage stage){
@@ -75,10 +77,8 @@ public class MainApp extends Application {
             Parent root = loader.load();
             stage.setScene(new Scene(root));
             stage.show();
-        }
-        catch( IOException e){
+        }catch( IOException e){
             e.printStackTrace();
         }
     }
-
 }
