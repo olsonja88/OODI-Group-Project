@@ -4,4 +4,4 @@
 <?import javafx.scene.layout.HBox?>
 
 <HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="edu.metrostate.ui.ScrollPageController" VBox.vgrow="ALWAYS"/>
+      fx:controller="edu.metrostate.ui.ScrollPageController" fx:id="scrollPage" VBox.vgrow="ALWAYS"/>
