@@ -3,6 +3,7 @@ package edu.metrostate.ui;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.HBox;
+import javafx.scene.control.Button;
 
 import java.io.IOException;
 
@@ -37,9 +38,22 @@ public class RootController {
             HBox scrollPage = scrollPageLoader.load();
             scrollPageController = scrollPageLoader.getController();
             scrollPageController.populateScrollPage(landingPageController.getSelectedCategory());
+            setRestaurantButtonListeners();
             contentSection.getChildren().setAll(scrollPage.getChildren());
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    private void setRestaurantButtonListeners() {
+        for (Button button : scrollPageController.getButtons()) {
+            button.setOnAction(event -> {
+                switchToRestaurantPage((int)button.getUserData());
+            });
+        }
+    }
+
+    private void switchToRestaurantPage(int restaurantID) {
+        System.out.println("Switching to restaurant: " + restaurantID);
     }
 }
