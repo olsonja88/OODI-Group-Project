@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.root {
+    -fx-font-family: "Pacifico", sans-serif;
+    -fx-font-size: 16px;
+    -fx-background-color: beige;
+}
+
+.header {
+    -fx-background-color: crimson;
+    -fx-font-size: 4.5em;
+    -fx-alignment: center;
+    -fx-padding: 10px;
+}
+
+.main-header-label {
+    -fx-text-fill: white;
+}
+
+.content{
+    -fx-font-family: "Red Hat Display", sans-serif;
+    -fx-alignment: center;
+    -fx-padding: 10px;
+}
+
+.button-label {
+    -fx-text-fill: white;
+}
+
+.footer {
+    -fx-text-fill: white;
+    -fx-background-color: crimson;
+    -fx-font-family: "Red Hat Display", sans-serif;
+    -fx-font-size: 1.5em;
+    -fx-alignment: center;
+    -fx-padding: 10px;
+}
+
+.footer-label {
+    -fx-text-fill: white;
+}

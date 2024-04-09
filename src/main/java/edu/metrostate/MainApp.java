@@ -32,9 +32,9 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
         VBox root = loader.load();
 
-        RestaurantPageController restaurantPageController = loader.getController();
-
         LandingPageController landingPageController = loader.getController();
+
+        RestaurantPageController restaurantPageController = loader.getController();
 
         landingPageController.getSearchButton().setOnAction(event -> {
             switchToScrollPage(stage);
