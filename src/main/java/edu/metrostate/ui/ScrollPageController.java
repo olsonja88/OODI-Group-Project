@@ -2,6 +2,7 @@ package edu.metrostate.ui;
 
 import edu.metrostate.model.Restaurant;
 import edu.metrostate.service.DatabaseImplementation;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
