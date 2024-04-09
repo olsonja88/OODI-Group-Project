@@ -25,7 +25,6 @@ public class LandingPageController {
 
     }
 
-
     @FXML
     private ComboBox<String> comboBox;
 

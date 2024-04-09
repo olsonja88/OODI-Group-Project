@@ -15,18 +15,6 @@ import java.io.IOException;
 
 public class MainApp extends Application {
 
-    @FXML
-    private Parent landingParent;
-
-    @FXML
-    private Parent scrollParent;
-
-    @FXML LandingPageController landingPageController;
-
-    @FXML ScrollPageController scrollPageController;
-
-    @FXML RestaurantPageController restaurantPageController;
-
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader1 = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
@@ -53,11 +41,6 @@ public class MainApp extends Application {
         stage.setScene(scene);
         stage.setTitle("ICS 372 - HelloFX");
         stage.show();
-
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 
     private void switchToScrollPage(Stage stage){
@@ -80,5 +63,10 @@ public class MainApp extends Application {
         }catch( IOException e){
             e.printStackTrace();
         }
+    }
+
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }

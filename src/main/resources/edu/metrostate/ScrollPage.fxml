@@ -18,15 +18,13 @@
     <stylesheets>
         <URL value="@ScrollPage.css"/>
     </stylesheets>
-
     <!-- header of page -->
     <HBox styleClass="header" HBox.hgrow="NEVER">
         <Label text="Yummy Food" styleClass="main-header-label"/>
     </HBox>
-
     <!-- scrollable list of restaurants-->
     <!-- vbox needed to see all buttons -->
-    <ScrollPane VBox.vgrow="ALWAYS">
+    <ScrollPane VBox.vgrow="ALWAYS" >
         <content>
             <VBox spacing="10">
 
@@ -34,7 +32,8 @@
                 <HBox spacing="10" alignment="CENTER_LEFT">
                     <Label text="Restauraunt #1 info" />
                     <children>
-                        <Button text="View Menu"  prefWidth="140" prefHeight="30" textAlignment="CENTER" fx:id="menuOne"/>
+                        <Button text="View Menu"  prefWidth="140" prefHeight="30" styleClass="button-label"
+                                textAlignment="CENTER" fx:id="menuOne"/>
                     </children>
                 </HBox>
 
@@ -42,7 +41,8 @@
                 <HBox spacing="10" alignment="CENTER_LEFT">
                     <Label text = "Restaurant #2 info" />
                     <children>
-                        <Button text="View Menu" prefWidth="140" prefHeight="30" textAlignment="CENTER" fx:id="menuTwo"/>
+                        <Button text="View Menu" prefWidth="140" prefHeight="30"
+                                textAlignment="CENTER" styleClass="button-label" fx:id="menuTwo"/>
                     </children>
                 </HBox>
 
@@ -50,7 +50,8 @@
                 <HBox spacing="10" alignment="CENTER_LEFT">
                         <Label text = "Restaurant #3 info" />
                         <children>
-                            <Button text="View Menu" prefWidth="140" prefHeight="30" textAlignment="CENTER" fx:id="menuThree"/>
+                            <Button text="View Menu" prefWidth="140" prefHeight="30" styleClass="button-label"
+                                    textAlignment="CENTER" fx:id="menuThree"/>
                         </children>
                 </HBox>
             </VBox>
@@ -62,13 +63,3 @@
         <Label text="Footer" styleClass="footer-label"/>
     </HBox>
 </VBox>
-
-        <!-- original code below -->
-        <!-- <VBox styleClass="contents" spacing="10" alignment="CENTER">
-            <Button text="Button 1" styleClass="button-label"/>
-            <HBox styleClass="contents" >
-                <Label text = "Restaurant #1" styleClass="contents"/>
-            </HBox>
-            <Button text="Button 2" styleClass="button-label"/>
-            <Button text="Button 3" styleClass="button-label"/>
-        </VBox> -->
