@@ -17,6 +17,8 @@ public class ScrollPageController {
     @FXML
     private HBox scrollPage;
 
+    private String selectedRestaurant = "";
+
     public ScrollPageController() {}
 
     public void initialize() {
@@ -60,5 +62,9 @@ public class ScrollPageController {
         }
 
         return buttonList;
+    }
+
+    public String getSelectedRestaurant(){
+        return selectedRestaurant;
     }
 }

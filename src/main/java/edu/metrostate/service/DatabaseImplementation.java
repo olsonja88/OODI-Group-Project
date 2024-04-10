@@ -1,7 +1,9 @@
 package edu.metrostate.service;
 
 import edu.metrostate.migrations.Migrations;
+import edu.metrostate.model.BasicFoodItem;
 import edu.metrostate.model.Restaurant;
+import edu.metrostate.ui.ScrollPageController;
 
 import java.io.Closeable;
 import java.sql.Connection;
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 
 public class DatabaseImplementation implements DatabaseInterface{
 
@@ -24,9 +27,13 @@ public class DatabaseImplementation implements DatabaseInterface{
 
     private List<Restaurant> restaurants;
 
+    private List<BasicFoodItem> basicFoodItems;
+
     private DatabaseImplementation () {
         migrate();
     }
+
+    private ScrollPageController scrollPageController;
 
     public static  DatabaseImplementation getInstance() {
         if (instance == null) {
@@ -92,5 +99,13 @@ public class DatabaseImplementation implements DatabaseInterface{
 
     public List<Restaurant> getRestaurants() {
         return restaurants;
+    }
+
+    public List<BasicFoodItem> getMenuItems(String restaurantName){
+        if(restaurantName.equalsIgnoreCase(scrollPageController.getSelectedRestaurant())) {
+            return basicFoodItems;
+        }
+        else return null;
+        //return basicFoodItems;
     }
 }
