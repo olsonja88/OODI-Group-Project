@@ -23,8 +23,7 @@ public class RestaurantPageController {
 
     private OrderItem order;
 
-    public RestaurantPageController() {
-    }
+    public RestaurantPageController() {}
 
     public void initialize() {
         restaurantPage.getChildren().clear();
@@ -44,8 +43,7 @@ public class RestaurantPageController {
             Button addToOrder = new Button("Add to Order");
             addToOrder.setOnAction(event -> {
                 order.orderItem(basicFoodItem, 1);
-                    }
-                    );
+            });
         }
     }
 

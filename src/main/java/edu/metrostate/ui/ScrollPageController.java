@@ -19,6 +19,8 @@ public class ScrollPageController {
 
     private String selectedRestaurant = "";
 
+    private Button selectedButton;
+
     public ScrollPageController() {}
 
     public void initialize() {
@@ -64,7 +66,21 @@ public class ScrollPageController {
         return buttonList;
     }
 
-    public String getSelectedRestaurant(){
+    //^^^we need to be able to know which button is clicked
+    // within the buttonList and
+    //we need to switch to the menu page from that button
+/*
+    public Button getSelectedButton(){
+        List<Button> buttons = getButtons();
+        for (Button button : buttons) {
+            if(button.setOnAction(event -> {
+                        Button clickedButton = (Button) event.getSource();
+                        return clickedButton;
+                    });
+            }
+    }
+*/
+    public String getSelectedRestaurant() {
         return selectedRestaurant;
     }
 }

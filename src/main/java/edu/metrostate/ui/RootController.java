@@ -30,9 +30,6 @@ public class RootController {
             FXMLLoader scrollPageLoader = new FXMLLoader(getClass().getResource("/edu/metrostate/ScrollPage.fxml"));
             HBox scrollPage = scrollPageLoader.load();
             scrollPageController = scrollPageLoader.getController();
-            //scrollPageController.getButtons().setOnAction(event ->{
-            //   switchToRestaurantPage();
-            //});
 
         }
         catch (IOException e)
@@ -49,6 +46,10 @@ public class RootController {
             scrollPageController.populateScrollPage(landingPageController.getSelectedCategory());
             setRestaurantButtonListeners();
             contentSection.getChildren().setAll(scrollPage.getChildren());
+
+            scrollPageController.getSelectedButton().setOnAction(event -> {
+                switchToRestaurantPage();
+            });
         }catch (IOException e){
             e.printStackTrace();
         }
