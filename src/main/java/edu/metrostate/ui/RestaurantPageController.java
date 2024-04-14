@@ -1,25 +1,22 @@
 package edu.metrostate.ui;
 
 import edu.metrostate.model.BasicFoodItem;
-import edu.metrostate.model.Order;
-import edu.metrostate.model.OrderItem;
-import edu.metrostate.model.Restaurant;
 import edu.metrostate.service.DatabaseImplementation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.Node;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RestaurantPageController {
     @FXML
     private HBox restaurantPage;
+    @FXML
+    private ScrollPane scrollWindow;
 
     public RestaurantPageController() {}
 
@@ -49,6 +46,7 @@ public class RestaurantPageController {
             menuItemOptions.getChildren().add(foodOption);
         }
 
-        restaurantPage.getChildren().add(menuItemOptions);
+        scrollWindow.setContent(menuItemOptions);
+        restaurantPage.getChildren().add(scrollWindow);
     }
 }

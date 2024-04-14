@@ -2,6 +2,9 @@
 
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ScrollPane?>
 
 <HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="edu.metrostate.ui.ScrollPageController" fx:id="scrollPage" VBox.vgrow="ALWAYS"/>
+      fx:controller="edu.metrostate.ui.ScrollPageController" fx:id="scrollPage" VBox.vgrow="ALWAYS">
+    <ScrollPane fx:id="scrollWindow"/>
+</HBox>
