@@ -97,11 +97,11 @@ public class DatabaseImplementation implements DatabaseInterface{
         return restaurants;
     }
 
-    public List<BasicFoodItem> getMenuItems(String restaurantName) {
+    public List<BasicFoodItem> getMenuItems(int restaurantID, String restaurantCategory) {
         List<BasicFoodItem> list = new ArrayList<>();
 
         for (Restaurant restaurant : restaurants) {
-            if (restaurant.getName().equalsIgnoreCase(restaurantName)) {
+            if (restaurant.getID() == restaurantID && restaurant.getCategory().equalsIgnoreCase(restaurantCategory)) {
                 list = restaurant.getMenu().getFoodItems();
             }
         }

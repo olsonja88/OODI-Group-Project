@@ -38,19 +38,26 @@ public class RootController {
             scrollPageController.populateScrollPage(landingPageController.getSelectedCategory());
             contentSection.getChildren().setAll(scrollPage.getChildren());
 
-            scrollPageController.setOnButtonClick(event -> switchToRestaurantPage());
+            scrollPageController.setOnButtonClick(event -> {
+                if (event instanceof RestaurantButtonClickEvent) {
+                    RestaurantButtonClickEvent buttonClickEvent = event;
+                    int ID = buttonClickEvent.getID();
+                    String category = buttonClickEvent.getCategory();
+                    switchToRestaurantPage(ID, category);
+                }
+            });
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void switchToRestaurantPage() {
+    private void switchToRestaurantPage(int restaurantID, String restaurantCategory) {
         try {
             FXMLLoader restaurantPageLoader = new FXMLLoader(getClass().getResource("/edu/metrostate/RestaurantPage.fxml"));
             HBox restaurantPage = restaurantPageLoader.load();
             restaurantPageController = restaurantPageLoader.getController();
-//            restaurantPageController.populateRestaurantPage();
+            restaurantPageController.populateRestaurantPage(restaurantID, restaurantCategory);
             contentSection.getChildren().setAll(restaurantPage.getChildren());
         } catch (IOException e) {
             e.printStackTrace();

@@ -29,31 +29,25 @@ public class RestaurantPageController {
         restaurantPage.getChildren().clear();
     }
 
-    public void populateRestaurantPage(String restaurantName) {
+    public void populateRestaurantPage(int restaurantID, String restaurantCategory) {
         DatabaseImplementation db = DatabaseImplementation.getInstance();
-        List<BasicFoodItem> restaurantItems = db.getMenuItems(restaurantName);
+        List<BasicFoodItem> restaurantItems = db.getMenuItems(restaurantID, restaurantCategory);
 
         VBox menuItemOptions = new VBox();
 
-        for(BasicFoodItem basicFoodItem : restaurantItems){
+        for(BasicFoodItem basicFoodItem : restaurantItems) {
             HBox foodOption = new HBox();
             foodOption.getStyleClass().add("food-option");
             Label foodName = new Label(basicFoodItem.getName());
             foodName.getStyleClass().add("food-name");
-            Button addToOrder = new Button("Add to Order");
-            addToOrder.setOnAction(event -> {
-                order.orderItem(basicFoodItem, 1);
+            Button orderItemButton = new Button("Add to Order");
+            orderItemButton.setOnAction(event -> {
             });
-        }
-    }
 
-    public List<Button> getButtons() {
-        List<Button> buttonList = new ArrayList<>();
-        for (Node node : restaurantPage.getChildren()) {
-            if (node instanceof Button) {
-                buttonList.add((Button) node);
-            }
+            foodOption.getChildren().addAll(foodName, orderItemButton);
+            menuItemOptions.getChildren().add(foodOption);
         }
-        return buttonList;
+
+        restaurantPage.getChildren().add(menuItemOptions);
     }
 }
