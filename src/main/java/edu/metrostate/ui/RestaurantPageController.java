@@ -29,9 +29,9 @@ public class RestaurantPageController {
         restaurantPage.getChildren().clear();
     }
 
-    public void populateRestaurantPage(String selectedRestaurant) {
+    public void populateRestaurantPage(String restaurantName) {
         DatabaseImplementation db = DatabaseImplementation.getInstance();
-        List<BasicFoodItem> restaurantItems = db.getMenuItems(selectedRestaurant);
+        List<BasicFoodItem> restaurantItems = db.getMenuItems(restaurantName);
 
         VBox menuItemOptions = new VBox();
 

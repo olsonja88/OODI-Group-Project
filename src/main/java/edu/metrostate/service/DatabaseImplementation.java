@@ -27,13 +27,9 @@ public class DatabaseImplementation implements DatabaseInterface{
 
     private List<Restaurant> restaurants;
 
-    private List<BasicFoodItem> basicFoodItems;
-
     private DatabaseImplementation () {
         migrate();
     }
-
-    private ScrollPageController scrollPageController;
 
     public static  DatabaseImplementation getInstance() {
         if (instance == null) {
@@ -101,11 +97,15 @@ public class DatabaseImplementation implements DatabaseInterface{
         return restaurants;
     }
 
-    public List<BasicFoodItem> getMenuItems(String restaurantName){
-        if(restaurantName.equalsIgnoreCase(scrollPageController.getSelectedRestaurant())) {
-            return basicFoodItems;
+    public List<BasicFoodItem> getMenuItems(String restaurantName) {
+        List<BasicFoodItem> list = new ArrayList<>();
+
+        for (Restaurant restaurant : restaurants) {
+            if (restaurant.getName().equalsIgnoreCase(restaurantName)) {
+                list = restaurant.getMenu().getFoodItems();
+            }
         }
-        else return null;
-        //return basicFoodItems;
+
+        return list;
     }
 }

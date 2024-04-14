@@ -3,7 +3,6 @@ package edu.metrostate.ui;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.HBox;
-import javafx.scene.control.Button;
 
 import java.io.IOException;
 
@@ -26,36 +25,23 @@ public class RootController {
                 switchToScrollPage();
             });
             contentSection.getChildren().setAll(landingPage.getChildren());
-
-            FXMLLoader scrollPageLoader = new FXMLLoader(getClass().getResource("/edu/metrostate/ScrollPage.fxml"));
-            HBox scrollPage = scrollPageLoader.load();
-            scrollPageController = scrollPageLoader.getController();
-
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void switchToScrollPage(){
-        try{
+    private void switchToScrollPage() {
+        try {
             FXMLLoader scrollPageLoader = new FXMLLoader(getClass().getResource("/edu/metrostate/ScrollPage.fxml"));
             HBox scrollPage = scrollPageLoader.load();
             scrollPageController = scrollPageLoader.getController();
             scrollPageController.populateScrollPage(landingPageController.getSelectedCategory());
-            setScrollPageButtonListeners();
             contentSection.getChildren().setAll(scrollPage.getChildren());
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
 
-    private void setScrollPageButtonListeners() {
-        for (Button button : scrollPageController.getButtons()) {
-            button.setOnAction(event -> {
-                switchToRestaurantPage();
-            });
+            scrollPageController.setOnButtonClick(event -> switchToRestaurantPage());
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -64,19 +50,10 @@ public class RootController {
             FXMLLoader restaurantPageLoader = new FXMLLoader(getClass().getResource("/edu/metrostate/RestaurantPage.fxml"));
             HBox restaurantPage = restaurantPageLoader.load();
             restaurantPageController = restaurantPageLoader.getController();
-            restaurantPageController.populateRestaurantPage(scrollPageController.getSelectedRestaurant());
-            setMenuItemButtonListeners();
+//            restaurantPageController.populateRestaurantPage();
             contentSection.getChildren().setAll(restaurantPage.getChildren());
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    private void setMenuItemButtonListeners(){
-        for(Button button : restaurantPageController.getButtons()){
-            button.setOnAction(event -> {
-                switchToRestaurantPage();
-            });
         }
     }
 }

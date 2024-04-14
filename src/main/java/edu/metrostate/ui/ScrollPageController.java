@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.Node;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +18,7 @@ import java.util.List;
 public class ScrollPageController {
     @FXML
     private HBox scrollPage;
-
-    private String selectedRestaurant = "";
-
-    private Button selectedButton;
+    private EventHandler<ActionEvent> buttonClickHandler;
 
     public ScrollPageController() {}
 
@@ -29,7 +28,8 @@ public class ScrollPageController {
 
     public void populateScrollPage(String selectedCategory) {
         DatabaseImplementation db = DatabaseImplementation.getInstance();
-        List<Restaurant> allRestaurants= db.getRestaurants();
+
+        List<Restaurant> allRestaurants = db.getRestaurants();
         ArrayList<Restaurant> selectedRestaurants = new ArrayList<>();
 
         for (Restaurant restaurant : allRestaurants) {
@@ -46,7 +46,12 @@ public class ScrollPageController {
             Label restaurantName = new Label(restaurant.getName());
             restaurantName.getStyleClass().add("restaurant-name");
             Button viewMenuButton = new Button("View Menu");
-            viewMenuButton.setUserData(restaurant.getID());
+
+            viewMenuButton.setOnAction(event -> {
+               if (buttonClickHandler != null) {
+                    buttonClickHandler.handle(event);
+               }
+            });
 
             restaurantOption.getChildren().addAll(restaurantName, viewMenuButton);
             restaurantOptions.getChildren().add(restaurantOption);
@@ -55,32 +60,7 @@ public class ScrollPageController {
         scrollPage.getChildren().add(restaurantOptions);
     }
 
-    public List<Button> getButtons() {
-        List<Button> buttonList = new ArrayList<>();
-        for (Node node: scrollPage.getChildren()) {
-            if (node instanceof Button) {
-                buttonList.add((Button) node);
-            }
-        }
-
-        return buttonList;
-    }
-
-    //^^^we need to be able to know which button is clicked
-    // within the buttonList and
-    //we need to switch to the menu page from that button
-/*
-    public Button getSelectedButton(){
-        List<Button> buttons = getButtons();
-        for (Button button : buttons) {
-            if(button.setOnAction(event -> {
-                        Button clickedButton = (Button) event.getSource();
-                        return clickedButton;
-                    });
-            }
-    }
-*/
-    public String getSelectedRestaurant() {
-        return selectedRestaurant;
+    public void setOnButtonClick(EventHandler<ActionEvent> handler) {
+        this.buttonClickHandler = handler;
     }
 }
