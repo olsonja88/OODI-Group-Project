@@ -21,8 +21,6 @@ public class RestaurantPageController {
     @FXML
     private HBox restaurantPage;
 
-    private OrderItem order;
-
     public RestaurantPageController() {}
 
     public void initialize() {
@@ -37,11 +35,14 @@ public class RestaurantPageController {
 
         for(BasicFoodItem basicFoodItem : restaurantItems) {
             HBox foodOption = new HBox();
-            foodOption.getStyleClass().add("food-option");
+            foodOption.getStyleClass().add("restaurant-option");
+
             Label foodName = new Label(basicFoodItem.getName());
-            foodName.getStyleClass().add("food-name");
+            foodName.getStyleClass().add("restaurant-name");
+
             Button orderItemButton = new Button("Add to Order");
             orderItemButton.setOnAction(event -> {
+
             });
 
             foodOption.getChildren().addAll(foodName, orderItemButton);
