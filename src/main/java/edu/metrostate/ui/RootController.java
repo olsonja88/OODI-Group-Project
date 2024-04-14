@@ -58,6 +58,7 @@ public class RootController {
             HBox restaurantPage = restaurantPageLoader.load();
             restaurantPageController = restaurantPageLoader.getController();
             restaurantPageController.populateRestaurantPage(restaurantID, restaurantCategory);
+            restaurantPageController.setupOrderTab();
             contentSection.getChildren().setAll(restaurantPage.getChildren());
         } catch (IOException e) {
             e.printStackTrace();

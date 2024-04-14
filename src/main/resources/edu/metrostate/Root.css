@@ -45,6 +45,11 @@ ComboBox:hover, Button:hover {
     -fx-background-insets: 2px;
 }
 
+.order-tab {
+    -fx-background-color: grey;
+    -fx-padding: 15px;
+}
+
 .footer {
     -fx-text-fill: white;
     -fx-background-color: crimson;

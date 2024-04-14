@@ -4,10 +4,12 @@ import edu.metrostate.model.BasicFoodItem;
 import edu.metrostate.service.DatabaseImplementation;
 
 import javafx.fxml.FXML;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
@@ -17,6 +19,9 @@ public class RestaurantPageController {
     private HBox restaurantPage;
     @FXML
     private ScrollPane scrollWindow;
+    private VBox orderTab;
+    private Button checkoutButton;
+    private Region spacer;
 
     public RestaurantPageController() {}
 
@@ -38,8 +43,12 @@ public class RestaurantPageController {
             foodName.getStyleClass().add("restaurant-name");
 
             Button orderItemButton = new Button("Add to Order");
+            orderItemButton.setUserData(new FoodItemUserData(basicFoodItem.getName(), basicFoodItem.getPrice()));
             orderItemButton.setOnAction(event -> {
-
+                 FoodItemUserData foodItemUserData = (FoodItemUserData) ((Button) event.getSource()).getUserData();
+                 String name = foodItemUserData.getName();
+                 float price = foodItemUserData.getPrice();
+                 addItemToOrder(name, price);
             });
 
             foodOption.getChildren().addAll(foodName, orderItemButton);
@@ -48,5 +57,32 @@ public class RestaurantPageController {
 
         scrollWindow.setContent(menuItemOptions);
         restaurantPage.getChildren().add(scrollWindow);
+    }
+
+    public void setupOrderTab() {
+        orderTab = new VBox();
+        orderTab.getStyleClass().add("order-tab");
+        restaurantPage.getChildren().add(orderTab);
+    }
+
+    private void addItemToOrder(String name, float price) {
+        if (checkoutButton != null) {
+            orderTab.getChildren().remove(checkoutButton);
+        }
+
+        if (spacer != null) {
+            orderTab.getChildren().remove(spacer);
+        }
+
+        spacer = null;
+        checkoutButton = null;
+
+        Label orderItem = new Label(name + " " + price);
+        orderTab.getChildren().add(orderItem);
+
+        spacer = new Region();
+        VBox.setVgrow(spacer, javafx.scene.layout.Priority.ALWAYS);
+        checkoutButton = new Button("Checkout");
+        orderTab.getChildren().addAll(spacer, checkoutButton);
     }
 }
