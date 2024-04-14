@@ -44,19 +44,15 @@ public class RootController {
             HBox scrollPage = scrollPageLoader.load();
             scrollPageController = scrollPageLoader.getController();
             scrollPageController.populateScrollPage(landingPageController.getSelectedCategory());
-            setRestaurantButtonListeners();
+            setScrollPageButtonListeners();
             contentSection.getChildren().setAll(scrollPage.getChildren());
-
-            scrollPageController.getSelectedButton().setOnAction(event -> {
-                switchToRestaurantPage();
-            });
         }catch (IOException e){
             e.printStackTrace();
         }
     }
 
-    private void setMenuItemButtonListeners(){
-        for(Button button : restaurantPageController.getButtons()){
+    private void setScrollPageButtonListeners() {
+        for (Button button : scrollPageController.getButtons()) {
             button.setOnAction(event -> {
                 switchToRestaurantPage();
             });
@@ -64,7 +60,6 @@ public class RootController {
     }
 
     private void switchToRestaurantPage() {
-        //System.out.println("Switching to restaurant: " + restaurantID);
         try {
             FXMLLoader restaurantPageLoader = new FXMLLoader(getClass().getResource("/edu/metrostate/RestaurantPage.fxml"));
             HBox restaurantPage = restaurantPageLoader.load();
@@ -77,8 +72,8 @@ public class RootController {
         }
     }
 
-    private void setRestaurantButtonListeners() {
-        for (Button button : scrollPageController.getButtons()) {
+    private void setMenuItemButtonListeners(){
+        for(Button button : restaurantPageController.getButtons()){
             button.setOnAction(event -> {
                 switchToRestaurantPage();
             });
