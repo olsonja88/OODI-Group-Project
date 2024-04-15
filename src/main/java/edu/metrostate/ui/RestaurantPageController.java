@@ -10,6 +10,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.event.EventHandler;
 
 import java.util.List;
 import java.text.DecimalFormat;
@@ -26,6 +27,7 @@ public class RestaurantPageController {
     private Button checkoutButton;
     private float sum = 0;
     private DecimalFormat df = new DecimalFormat("0.00");
+    private EventHandler<CheckoutButtonClickEvent> buttonClickHandler;
 
     public RestaurantPageController() {}
 
@@ -76,6 +78,14 @@ public class RestaurantPageController {
 
         total = new Label("Total : $0.00");
         checkoutButton = new Button("Checkout");
+        checkoutButton.setUserData(sum);
+        checkoutButton.setOnAction(event -> {
+            float totalPrice = (float) ((Button) event.getSource()).getUserData();
+
+            if (buttonClickHandler != null) {
+                buttonClickHandler.handle(new CheckoutButtonClickEvent(event, totalPrice));
+            }
+        });
 
         orderTab.getChildren().addAll(orderWindow, spacer, total, checkoutButton);
 
@@ -87,7 +97,12 @@ public class RestaurantPageController {
         orderItems.getChildren().add(orderItem);
 
         sum += price;
+        checkoutButton.setUserData(sum);
         String newTotal = df.format(sum);
         total.setText("Total: $" + newTotal);
+    }
+
+    public void setOnButtonClick(EventHandler<CheckoutButtonClickEvent> handler) {
+        this.buttonClickHandler = handler;
     }
 }

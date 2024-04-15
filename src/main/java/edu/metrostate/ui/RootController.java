@@ -46,7 +46,6 @@ public class RootController {
                     switchToRestaurantPage(ID, category);
                 }
             });
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -60,8 +59,18 @@ public class RootController {
             restaurantPageController.populateRestaurantPage(restaurantID, restaurantCategory);
             restaurantPageController.setupOrderTab();
             contentSection.getChildren().setAll(restaurantPage.getChildren());
+
+            restaurantPageController.setOnButtonClick(event -> {
+                CheckoutButtonClickEvent buttonClickEvent = event;
+                float total = buttonClickEvent.getTotal();
+                switchToCheckoutPage(total);
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void switchToCheckoutPage(float total) {
+        System.out.println(total);
     }
 }
