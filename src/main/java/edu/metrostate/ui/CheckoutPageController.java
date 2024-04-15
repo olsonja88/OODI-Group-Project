@@ -3,6 +3,7 @@ package edu.metrostate.ui;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 
 import java.text.DecimalFormat;
 
@@ -45,6 +46,8 @@ public class CheckoutPageController {
     private Label tipLabel;
     @FXML
     private Label totalLabel;
+    @FXML
+    private Button orderButton;
 
     private boolean sameAsDeliv = false;
     private final double TAX_RATE = 0.08375;
@@ -109,5 +112,9 @@ public class CheckoutPageController {
         tipLabel.setText("Tip: $" + df.format(tip));
         total = subtotal + tip;
         totalLabel.setText("Total: $" + df.format(total));
+    }
+
+    public Button getOrderButton() {
+        return orderButton;
     }
 }

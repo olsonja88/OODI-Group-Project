@@ -78,6 +78,19 @@ public class RootController {
             contentSection.getChildren().setAll(checkoutPage.getChildren());
             checkoutPageController = checkoutPageLoader.getController();
             checkoutPageController.populateCheckoutPage(total);
+            checkoutPageController.getOrderButton().setOnAction(event -> {
+               switchToSuccessPage();
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void switchToSuccessPage() {
+        try {
+            FXMLLoader successPageLoader = new FXMLLoader(getClass().getResource("/edu/metrostate/SuccessPage.fxml"));
+            HBox successPage = successPageLoader.load();
+            contentSection.getChildren().setAll(successPage.getChildren());
         } catch (IOException e) {
             e.printStackTrace();
         }
