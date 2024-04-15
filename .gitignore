@@ -42,3 +42,6 @@ bin/
 ### Mac OS ###
 .DS_Store
 /.idea/vcs.xml
+
+### Custom db files ###
+.db
