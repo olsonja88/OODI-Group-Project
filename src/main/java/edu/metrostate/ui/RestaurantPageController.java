@@ -64,40 +64,28 @@ public class RestaurantPageController {
     }
 
     public void setupOrderTab() {
-        // Create the order tab
         orderTab = new VBox();
         orderTab.getStyleClass().add("order-tab");
 
-        // Create the box that will hold order items
         orderItems = new VBox();
-
-        // Create the scroll pane that will hold the box that holds the order items
         orderWindow = new ScrollPane();
         orderWindow.setContent(orderItems);
 
-        // Create the spacer between the order window and the total and checkout button
         Region spacer = new Region();
         VBox.setVgrow(spacer, javafx.scene.layout.Priority.ALWAYS);
 
-        // Create a total label
         total = new Label("Total : $0.00");
-
-        // Create a checkout button
         checkoutButton = new Button("Checkout");
 
-        // Add scroll pane and spacer as children of the tab
         orderTab.getChildren().addAll(orderWindow, spacer, total, checkoutButton);
 
-        // Add order tab as child of the whole page
         restaurantPage.getChildren().add(orderTab);
     }
 
     private void addItemToOrder(String name, float price) {
-        // Create a new order item and add it to the orderItems
         Label orderItem = new Label(name + " $" + price);
         orderItems.getChildren().add(orderItem);
 
-        // Update our total with a new total
         sum += price;
         String newTotal = df.format(sum);
         total.setText("Total: $" + newTotal);
