@@ -31,6 +31,7 @@
             <TextField fx:id="delivZipCodeField"/>
             <Label text="Credit Card Number"/>
             <TextField fx:id="ccNumberField"/>
+            <Label fx:id="ccValidationLabel"/>
             <Label text="CVV"/>
             <TextField fx:id="cvvNumberField"/>
             <CheckBox text="Same as delivery" onAction="#sameAsDelivClicked"/>

@@ -19,6 +19,8 @@ public class CheckoutPageController {
     @FXML
     private TextField ccNumberField;
     @FXML
+    private Label ccValidationLabel;
+    @FXML
     private TextField cvvNumberField;
     @FXML
     private Label billingAddressLabel;
@@ -56,6 +58,12 @@ public class CheckoutPageController {
     private double total = 0;
     private DecimalFormat df = new DecimalFormat("0.00");
 
+    public void initialize() {
+        ccNumberField.textProperty().addListener((observable, oldValue, newValue) -> {
+           validateCCInput(newValue);
+        });
+    }
+
     public void populateCheckoutPage(float num) {
         subtotal = num;
         double currTax = subtotal * TAX_RATE;
@@ -64,6 +72,16 @@ public class CheckoutPageController {
         subtotalLabel.setText("Subtotal: $" + df.format(subtotal));
         taxLabel.setText("Tax: $" + df.format(currTax));
         totalLabel.setText("Total: $" + df.format(total));
+    }
+
+    private void validateCCInput(String input) {
+        String numberRegex = "[0-9]";
+
+        if (!input.matches(numberRegex)) {
+            ccValidationLabel.setText("Must enter a number");
+        } else {
+            ccValidationLabel.setText("");
+        }
     }
 
     @FXML
@@ -105,7 +123,8 @@ public class CheckoutPageController {
     }
 
     private void updateTipField() {
-        tipField.setText(String.valueOf(tip));
+        String tipText = df.format(tip);
+        tipField.setText(tipText);
     }
 
     private void updateTotalLabels() {
