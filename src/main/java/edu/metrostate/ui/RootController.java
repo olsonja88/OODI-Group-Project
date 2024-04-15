@@ -12,6 +12,7 @@ public class RootController {
     private LandingPageController landingPageController;
     private ScrollPageController scrollPageController;
     private RestaurantPageController restaurantPageController;
+    private CheckoutPageController checkoutPageController;
 
     public RootController() {}
 
@@ -71,6 +72,14 @@ public class RootController {
     }
 
     private void switchToCheckoutPage(float total) {
-        System.out.println(total);
+        try {
+            FXMLLoader checkoutPageLoader = new FXMLLoader(getClass().getResource("/edu/metrostate/CheckoutPage.fxml"));
+            HBox checkoutPage = checkoutPageLoader.load();
+            contentSection.getChildren().setAll(checkoutPage.getChildren());
+            checkoutPageController = checkoutPageLoader.getController();
+            checkoutPageController.populateCheckoutPage(total);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
