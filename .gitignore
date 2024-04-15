@@ -44,4 +44,4 @@ bin/
 /.idea/vcs.xml
 
 ### Custom db files ###
-.db
+*.db
