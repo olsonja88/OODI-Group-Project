@@ -80,7 +80,7 @@ public class RestaurantPageController {
         VBox.setVgrow(spacer, javafx.scene.layout.Priority.ALWAYS);
 
         // Create a total label
-        total = new Label("Total : 0.00");
+        total = new Label("Total : $0.00");
 
         // Create a checkout button
         checkoutButton = new Button("Checkout");
@@ -94,12 +94,12 @@ public class RestaurantPageController {
 
     private void addItemToOrder(String name, float price) {
         // Create a new order item and add it to the orderItems
-        Label orderItem = new Label(name + " " + price);
+        Label orderItem = new Label(name + " $" + price);
         orderItems.getChildren().add(orderItem);
 
         // Update our total with a new total
         sum += price;
         String newTotal = df.format(sum);
-        total.setText("Total: " + newTotal);
+        total.setText("Total: $" + newTotal);
     }
 }
