@@ -14,6 +14,6 @@
     </HBox>
     <HBox fx:id="contentSection" styleClass="content-section" VBox.vgrow="ALWAYS"/>
     <HBox styleClass="footer" VBox.vgrow="NEVER">
-        <Label text="Footer" styleClass="footer-label"/>
+        <Label text="Order YummyFood today!" styleClass="footer-label"/>
     </HBox>
 </VBox>

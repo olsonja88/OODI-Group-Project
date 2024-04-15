@@ -1,7 +1,9 @@
 package edu.metrostate.service;
 
 import edu.metrostate.migrations.Migrations;
+import edu.metrostate.model.BasicFoodItem;
 import edu.metrostate.model.Restaurant;
+import edu.metrostate.ui.ScrollPageController;
 
 import java.io.Closeable;
 import java.sql.Connection;
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 
 public class DatabaseImplementation implements DatabaseInterface{
 
@@ -92,5 +95,17 @@ public class DatabaseImplementation implements DatabaseInterface{
 
     public List<Restaurant> getRestaurants() {
         return restaurants;
+    }
+
+    public List<BasicFoodItem> getMenuItems(int restaurantID, String restaurantCategory) {
+        List<BasicFoodItem> list = new ArrayList<>();
+
+        for (Restaurant restaurant : restaurants) {
+            if (restaurant.getID() == restaurantID && restaurant.getCategory().equalsIgnoreCase(restaurantCategory)) {
+                list = restaurant.getMenu().getFoodItems();
+            }
+        }
+
+        return list;
     }
 }

@@ -6,9 +6,10 @@ import edu.metrostate.service.DatabaseImplementation;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.Node;
+import javafx.event.EventHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,9 @@ import java.util.List;
 public class ScrollPageController {
     @FXML
     private HBox scrollPage;
+    @FXML
+    private ScrollPane scrollWindow;
+    private EventHandler<RestaurantButtonClickEvent> buttonClickHandler;
 
     public ScrollPageController() {}
 
@@ -25,7 +29,8 @@ public class ScrollPageController {
 
     public void populateScrollPage(String selectedCategory) {
         DatabaseImplementation db = DatabaseImplementation.getInstance();
-        List<Restaurant> allRestaurants= db.getRestaurants();
+
+        List<Restaurant> allRestaurants = db.getRestaurants();
         ArrayList<Restaurant> selectedRestaurants = new ArrayList<>();
 
         for (Restaurant restaurant : allRestaurants) {
@@ -39,26 +44,31 @@ public class ScrollPageController {
         for (Restaurant restaurant : selectedRestaurants) {
             HBox restaurantOption = new HBox();
             restaurantOption.getStyleClass().add("restaurant-option");
+
             Label restaurantName = new Label(restaurant.getName());
             restaurantName.getStyleClass().add("restaurant-name");
+
             Button viewMenuButton = new Button("View Menu");
-            viewMenuButton.setUserData(restaurant.getID());
+            viewMenuButton.setUserData(new RestaurantUserData(restaurant.getID(), restaurant.getCategory()));
+            viewMenuButton.setOnAction(event -> {
+                RestaurantUserData restaurantUserData = (RestaurantUserData) ((Button) event.getSource()).getUserData();
+                int ID = restaurantUserData.getRestaurantID();
+                String category = restaurantUserData.getRestaurantCategory();
+
+                if (buttonClickHandler != null) {
+                    buttonClickHandler.handle(new RestaurantButtonClickEvent(event, ID, category));
+                }
+            });
 
             restaurantOption.getChildren().addAll(restaurantName, viewMenuButton);
             restaurantOptions.getChildren().add(restaurantOption);
         }
 
-        scrollPage.getChildren().add(restaurantOptions);
+        scrollWindow.setContent(restaurantOptions);
+        scrollPage.getChildren().add(scrollWindow);
     }
 
-    public List<Button> getButtons() {
-        List<Button> buttonList = new ArrayList<>();
-        for (Node node: scrollPage.getChildren()) {
-            if (node instanceof Button) {
-                buttonList.add((Button) node);
-            }
-        }
-
-        return buttonList;
+    public void setOnButtonClick(EventHandler<RestaurantButtonClickEvent> handler) {
+        this.buttonClickHandler = handler;
     }
 }
