@@ -25,9 +25,13 @@ public class RestaurantPageController {
     private VBox orderItems;
     private Label total;
     private Button checkoutButton;
+
+    private Button clearCart;
     private float sum = 0;
     private DecimalFormat df = new DecimalFormat("0.00");
     private EventHandler<CheckoutButtonClickEvent> buttonClickHandler;
+
+    //private EventHandler<ClearOrderButtonClickEvent> clearOrderButtonClickEventEventHandler;
 
     public RestaurantPageController() {}
 
@@ -85,6 +89,11 @@ public class RestaurantPageController {
             if (buttonClickHandler != null) {
                 buttonClickHandler.handle(new CheckoutButtonClickEvent(event, totalPrice));
             }
+        });
+
+        clearCart = new Button("Clear Cart");
+        clearCart.setOnAction(event -> {
+
         });
 
         orderTab.getChildren().addAll(orderWindow, spacer, total, checkoutButton);

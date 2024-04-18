@@ -13,21 +13,38 @@ public class LandingPageController {
     private Button searchButton;
     private String selectedCategory = "";
 
+    @FXML
+    private Button returnHome;
+
     public LandingPageController() {}
 
     public void initialize() {
+
+        // create connection to database
         DatabaseImplementation db = DatabaseImplementation.getInstance();
+
+        //get list of restaurants
         db.list();
+
+        //set comboBox of categories
         comboBox.setItems(FXCollections.observableArrayList(db.getCategories()));
+
+        //when a category is chosen, get value of the restaurant chosen
         comboBox.setOnAction(event -> {
             selectedCategory = comboBox.getValue();
         });
+
+        searchButton.setOnAction(event -> {
+            if(selectedCategory == null || selectedCategory.isEmpty()) {
+                db.getRestaurants();
+            }
+        });
     }
 
-    public Button getSearchButton()
-    {
+    public Button getSearchButton(){
         return searchButton;
     }
+
 
     public String getSelectedCategory()
     {

@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
 
+<?import javafx.scene.control.Button?>
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="edu.metrostate.ui.RootController">
     <stylesheets>
         <URL value="@Root.css"/>
@@ -15,5 +16,6 @@
     <HBox fx:id="contentSection" styleClass="content-section" VBox.vgrow="ALWAYS"/>
     <HBox styleClass="footer" VBox.vgrow="NEVER">
         <Label text="Order YummyFood today!" styleClass="footer-label"/>
+        <Button text="Return to home page" fx:id="returnHome" styleClass="home-button" onAction="#handleReturnHome" />
     </HBox>
 </VBox>
